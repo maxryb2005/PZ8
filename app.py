@@ -11,9 +11,9 @@ logger = logging.getLogger(__name__)
 # Настройка подключения к базе данных
 def get_db_connection():
     return psycopg2.connect(
-        dbname='dataofuser',
+        dbname='belka',
         user='postgres',
-        password='1357',
+        password='3456',
         host='localhost',
         port='5432'
     )
@@ -101,7 +101,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ]
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
 
-    await update.message.reply_text('Добро пожаловать ☆*:.｡.o(≧▽≦)o.｡.:*☆ Выберите команду!:', reply_markup=reply_markup)
+    await update.message.reply_text('Добро пожаловать! Выберите команду!:', reply_markup=reply_markup)
 
 
 
@@ -127,7 +127,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # Основная функция для запуска бота
 def main():
-    app = ApplicationBuilder().token('7930914754:AAGGuWzdJQHezBtYMxuA4UNNtCCpVRm61y4').build()
+    app = ApplicationBuilder().token('7506135749:AAG-ZKajBRWNHH8d_mo3-vyZPyWcCeEd8nI').build()
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("help", help_command))
